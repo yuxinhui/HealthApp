@@ -133,6 +133,7 @@
                     android:layout_marginStart="10dp" />
             </RelativeLayout>
             <RelativeLayout
+                android:id="@+id/diqu_rl"
                 android:layout_width="match_parent"
                 android:layout_height="50dp">
                 <ImageView
@@ -141,14 +142,14 @@
                     android:layout_height="30dp"
                     android:layout_centerVertical="true"
                     android:src="@mipmap/ic_launcher" />
-                <com.jinfukeji.healthapp.utils.EdittextActivity
-                    android:id="@+id/diqu_et"
+                <TextView
+                    android:id="@+id/diqu_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColorHint="#7c7b7b"
                     android:hint="选择地区"
+                    android:textSize="18sp"
                     android:textColor="#000000"
-                    android:background="@null"
                     android:layout_alignBottom="@+id/diqu_img"
                     android:layout_toEndOf="@+id/diqu_img"
                     android:layout_marginStart="10dp" />
@@ -158,14 +159,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp">
 
-                <com.jinfukeji.healthapp.utils.EdittextActivity
-                    android:id="@+id/xiangxi_et"
+                <TextView
+                    android:textSize="18sp"
+                    android:id="@+id/xiangxi_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColorHint="#7c7b7b"
-                    android:hint="详细地址"
                     android:textColor="#000000"
-                    android:background="@null"
                     android:layout_marginStart="40dp" />
             </RelativeLayout>
             <LinearLayout

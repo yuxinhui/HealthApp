@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.jinfukeji.healthapp.R;
 
@@ -18,6 +19,8 @@ import com.jinfukeji.healthapp.R;
 
 public class JiqishezhiActivity extends AppCompatActivity{
     ImageView fanhui_img;
+    RelativeLayout peizhi_rl;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,10 +40,17 @@ public class JiqishezhiActivity extends AppCompatActivity{
                 finish();
             }
         });
+        peizhi_rl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(JiqishezhiActivity.this,PopupWindowActivity.class));
+            }
+        });
     }
 
     //控件初始化
     private void initView() {
         fanhui_img= (ImageView) this.findViewById(R.id.fanhui_img);
+        peizhi_rl= (RelativeLayout) this.findViewById(R.id.peizhi_rl);
     }
 }

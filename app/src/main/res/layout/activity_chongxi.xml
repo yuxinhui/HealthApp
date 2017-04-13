@@ -18,12 +18,12 @@
             android:layout_height="25dp" />
         <ImageView
             android:id="@+id/fanhui_img"
-            android:src="@mipmap/fanhui"
+            android:src="@mipmap/jiantou"
             android:layout_alignParentRight="true"
             android:layout_marginRight="10dp"
             android:layout_marginTop="5dp"
             android:layout_width="25dp"
-            android:layout_height="25dp" />
+            android:layout_height="20dp" />
         <Button
             android:id="@+id/chongxi_btn"
             android:layout_centerHorizontal="true"

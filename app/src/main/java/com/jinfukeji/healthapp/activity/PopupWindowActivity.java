@@ -4,6 +4,8 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -12,8 +14,18 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.jinfukeji.healthapp.HealthActivity;
 import com.jinfukeji.healthapp.R;
+import com.jinfukeji.healthapp.been.PeiZhiBeen;
 
 /**
  * Created by "于志渊"
@@ -27,6 +39,8 @@ public class PopupWindowActivity extends AppCompatActivity{
     Button quxiao_btn,baocun_btn;
     LinearLayout popup_jiqipeizhi_ll;
     Dialog dialog;
+
+    String chanpinhao,mima;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,17 +55,66 @@ public class PopupWindowActivity extends AppCompatActivity{
                         //取消
                         finish();
                         break;
+                    case R.id.baocun_btn:
+                        initData();
+                        if (TextUtils.isEmpty(chanpinhao)){
+                            chanpinhao_et.setError("产品序列号不能为空");
+                            chanpinhao_et.requestFocus();
+                            return;
+                        }
+                        if (TextUtils.isEmpty(mima)){
+                            mima_et.requestFocus();
+                            mima_et.setError("密码不能为空");
+                            return;
+                        }
+                        String url_peizhi= HealthActivity.getUrlMain()+"device/addDevice?serialNumber="+chanpinhao+"&password="+mima;
+                        Log.e("TAG",url_peizhi);
+                        peizhiurl(url_peizhi);
+                        finish();
+                        break;
                 }
                 dialog.dismiss();
             }
         };
         initView(listener);
+        initData();
         Window window=dialog.getWindow();
         window.getDecorView().setPadding(0,0,0,0);
         WindowManager.LayoutParams params = window.getAttributes();
         params.width = LinearLayout.LayoutParams.MATCH_PARENT;
         params.gravity = Gravity.BOTTOM;
         window.setAttributes(params);
+    }
+
+    //配置序列号的请求
+    private void peizhiurl(String url_peizhi) {
+        RequestQueue queue= Volley.newRequestQueue(getApplicationContext());
+        StringRequest request=new StringRequest(Request.Method.POST, url_peizhi, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String s) {
+                if (s != null){
+                    Gson gson=new Gson();
+                    PeiZhiBeen message=gson.fromJson(s,PeiZhiBeen.class);
+                    if ("ok".equals(message.getStatus())){
+                        Toast.makeText(PopupWindowActivity.this,"配置成功",Toast.LENGTH_SHORT).show();
+                    }else {
+                        Toast.makeText(PopupWindowActivity.this,"配置失败",Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                Toast.makeText(PopupWindowActivity.this,"请检查网络连接，配置失败",Toast.LENGTH_SHORT).show();
+            }
+        });
+        queue.add(request);
+    }
+
+    //获取产品号与密码
+    private void initData() {
+        chanpinhao=chanpinhao_et.getText().toString();
+        mima=mima_et.getText().toString();
     }
 
     @Override
@@ -69,5 +132,6 @@ public class PopupWindowActivity extends AppCompatActivity{
         baocun_btn= (Button)dialog.findViewById(R.id.baocun_btn);
 
         quxiao_btn.setOnClickListener(listener);
+        baocun_btn.setOnClickListener(listener);
     }
 }

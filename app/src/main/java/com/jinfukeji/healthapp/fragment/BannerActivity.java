@@ -1,6 +1,7 @@
 package com.jinfukeji.healthapp.fragment;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -78,6 +79,15 @@ public class BannerActivity extends Fragment{
             public void onClick(View view) {
                 Intent jiqishezhi=new Intent(getContext(),JiqishezhiActivity.class);
                 startActivity(jiqishezhi);
+            }
+        });
+        fenxiang_ll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(Intent.ACTION_SEND);
+                intent.setType("image/*");
+                intent.putExtra(Intent.EXTRA_STREAM, Uri.parse("https://www.baidu.com/"));
+                startActivity(Intent.createChooser(intent,"分享"));
             }
         });
     }

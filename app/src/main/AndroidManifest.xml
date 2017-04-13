@@ -2,14 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jinfukeji.healthapp">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".HealthActivity"
         android:allowBackup="false"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/apptubiao"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".BufferActivity">
+        <activity android:name=".FirstStartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,6 +19,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity"/>
+        <activity android:name=".BufferActivity"/>
+        <activity android:name=".yindaotutext.YindaotuActivity"
+            android:theme="@style/diqu"/>
         <activity android:name=".activity.ChongxiAcitity"/>
         <activity android:name=".activity.LvxinActivity"/>
         <activity android:name=".activity.MyshezhiActivity"/>

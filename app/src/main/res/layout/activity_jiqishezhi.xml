@@ -14,10 +14,11 @@
         <ImageView
             android:id="@+id/fanhui_img"
             android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_height="20dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="10dp"
-            android:src="@mipmap/fanhui" />
+            android:layout_marginTop="5dp"
+            android:src="@mipmap/jiantou" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -61,10 +62,10 @@
                     android:layout_height="30dp" />
                 <ImageView
                     android:layout_centerVertical="true"
-                    android:src="@mipmap/ic_launcher"
+                    android:src="@mipmap/jinru"
                     android:layout_alignParentRight="true"
                     android:layout_width="30dp"
-                    android:layout_height="30dp" />
+                    android:layout_height="20dp" />
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -83,10 +84,10 @@
                     android:layout_height="30dp" />
                 <ImageView
                     android:layout_centerVertical="true"
-                    android:src="@mipmap/ic_launcher"
+                    android:src="@mipmap/jinru"
                     android:layout_alignParentRight="true"
                     android:layout_width="30dp"
-                    android:layout_height="30dp" />
+                    android:layout_height="20dp" />
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -133,10 +134,10 @@
                     android:layout_height="30dp" />
                 <ImageView
                     android:layout_centerVertical="true"
-                    android:src="@mipmap/ic_launcher"
+                    android:src="@mipmap/jinru"
                     android:layout_alignParentRight="true"
                     android:layout_width="30dp"
-                    android:layout_height="30dp" />
+                    android:layout_height="20dp" />
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -155,10 +156,10 @@
                     android:layout_height="30dp" />
                 <ImageView
                     android:layout_centerVertical="true"
-                    android:src="@mipmap/ic_launcher"
+                    android:src="@mipmap/jinru"
                     android:layout_alignParentRight="true"
                     android:layout_width="30dp"
-                    android:layout_height="30dp" />
+                    android:layout_height="20dp" />
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -177,10 +178,10 @@
                     android:layout_height="30dp" />
                 <ImageView
                     android:layout_centerVertical="true"
-                    android:src="@mipmap/ic_launcher"
+                    android:src="@mipmap/jinru"
                     android:layout_alignParentRight="true"
                     android:layout_width="30dp"
-                    android:layout_height="30dp" />
+                    android:layout_height="20dp" />
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -208,10 +209,10 @@
                     android:layout_height="30dp" />
                 <ImageView
                     android:layout_centerVertical="true"
-                    android:src="@mipmap/ic_launcher"
+                    android:src="@mipmap/jinru"
                     android:layout_alignParentRight="true"
                     android:layout_width="30dp"
-                    android:layout_height="30dp" />
+                    android:layout_height="20dp" />
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -230,10 +231,10 @@
                     android:layout_height="30dp" />
                 <ImageView
                     android:layout_centerVertical="true"
-                    android:src="@mipmap/ic_launcher"
+                    android:src="@mipmap/jinru"
                     android:layout_alignParentRight="true"
                     android:layout_width="30dp"
-                    android:layout_height="30dp" />
+                    android:layout_height="20dp" />
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"

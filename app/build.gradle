@@ -32,4 +32,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile files('libs/Volley.jar')
     compile 'com.google.code.gson:gson:2.8.0'
+    compile files('libs/libammsdk.jar')
 }

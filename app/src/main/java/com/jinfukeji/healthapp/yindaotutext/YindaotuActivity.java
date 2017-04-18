@@ -44,11 +44,11 @@ public class YindaotuActivity extends AppCompatActivity{
         viewPager.setAdapter(imageAdapter);
         viewPager.addOnPageChangeListener(new ViewPagerOnPageChangeListener());
         //加载底部圆点
-        initPoint();
+        //initPoint();
     }
 
     // 加载底部圆点
-    private void initPoint() {
+    /*private void initPoint() {
         //这里实例化LinearLayout
         vg = (ViewGroup) findViewById(R.id.guide_ll);
         //根据ViewPager的item数量实例化数组
@@ -69,7 +69,7 @@ public class YindaotuActivity extends AppCompatActivity{
             //将数组中的ImageView加入到ViewGroup
             vg.addView(ivPointArray[i]);
         }
-    }
+    }*/
 
     private class ViewPagerOnPageChangeListener implements ViewPager.OnPageChangeListener {
         int currPosition = 0; // 当前滑动到了哪一页
@@ -91,7 +91,7 @@ public class YindaotuActivity extends AppCompatActivity{
                                 @Override
                                 public void onAnimationEnd(Animator animation) {
                                     super.onAnimationEnd(animation);
-                                    imageAdapter.slideText.setText("松开跳到首页");
+                                    imageAdapter.slideText.setText("");
                                     isObjAnmatitor2 = true;
                                 }
                             });
@@ -108,7 +108,7 @@ public class YindaotuActivity extends AppCompatActivity{
                                 @Override
                                 public void onAnimationEnd(Animator animation) {
                                     super.onAnimationEnd(animation);
-                                    imageAdapter.slideText.setText("继续滑动跳到首页");
+                                    imageAdapter.slideText.setText("");
                                     isObjAnmatitor = true;
                                 }
                             });
@@ -126,13 +126,13 @@ public class YindaotuActivity extends AppCompatActivity{
         public void onPageSelected(int position) {
             currPosition = position;
             //循环设置当前页的标记图
-            int length = images.length;
+            /*int length = images.length;
             for (int i = 0;i<length;i++){
                 ivPointArray[position-1].setBackgroundResource(R.mipmap.shixunyuan);
                 if (position != i){
                     ivPointArray[i].setBackgroundResource(R.mipmap.kongxinyuan);
                 }
-            }
+            }*/
         }
 
         @Override
@@ -180,7 +180,7 @@ public class YindaotuActivity extends AppCompatActivity{
         public Object instantiateItem(ViewGroup container, int position) {
             if (position < images.length){
                 ImageView imageView = new ImageView(YindaotuActivity.this);
-                ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, dip2px(100));
+                ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, dip2px(300));
                 imageView.setLayoutParams(lp);
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 imageView.setImageResource(images[position]);

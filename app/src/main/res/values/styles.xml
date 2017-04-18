@@ -20,6 +20,7 @@
         <item name="android:backgroundDimEnabled">true</item>
         <!--无标题 -->
         <item name="android:windowNoTitle">true</item>
+        <item name="actionBarPopupTheme">@style/Theme.AppCompat.NoActionBar</item>
         <!--半透明-->
         <item name="android:windowIsTranslucent">true</item>
         <!--Dialog进入及退出动画-->

@@ -11,7 +11,7 @@ import android.app.Application;
 
 public class HealthActivity extends Application{
     private static HealthActivity intance;
-    private static final String URL_MAIN="http://192.168.0.135:80/yahe/";
+    private static final String URL_MAIN="http://114.55.142.212:8080/yahe/";
     @Override
     public void onCreate() {
         super.onCreate();

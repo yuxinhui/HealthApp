@@ -20,7 +20,7 @@ public class EdittextActivity extends android.support.v7.widget.AppCompatEditTex
         //设置画笔的属性
         bi=new Paint();
         bi.setStyle(Paint.Style.STROKE);
-        //可以自定义画笔的颜色，我这里设置成黑色
+        //可以自定义画笔的颜色，我这里设置成灰色
         bi.setColor(Color.GRAY);
     }
 

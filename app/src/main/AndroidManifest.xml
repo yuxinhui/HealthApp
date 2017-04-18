@@ -3,6 +3,11 @@
     package="com.jinfukeji.healthapp">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
 
     <application
         android:name=".HealthActivity"
@@ -31,6 +36,12 @@
         <activity android:name=".activity.PopupWindowActivity" android:theme="@style/PeizhiPopupWindow"/>
         <activity android:name=".activity.ShowRegionActivity" android:windowSoftInputMode="stateHidden"
             android:theme="@style/diqu"/>
+        <activity android:name=".activity.WXFenxiangActivity" android:theme="@style/PeizhiPopupWindow"/>
+        <activity android:name="com.jinfukeji.healthapp.wxapi.WXEntryActivity"
+            android:exported="true" android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name=".activity.AboutUsActivity"/>
+        <activity android:name=".activity.GuzhangFankuiActivity"/>
     </application>
 
 </manifest>

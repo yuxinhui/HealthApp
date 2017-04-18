@@ -1,12 +1,9 @@
 package com.jinfukeji.healthapp.fragment;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +16,7 @@ import com.jinfukeji.healthapp.activity.JiqishezhiActivity;
 import com.jinfukeji.healthapp.activity.LvxinActivity;
 import com.jinfukeji.healthapp.activity.MyshezhiActivity;
 import com.jinfukeji.healthapp.activity.MyzhangdanActivity;
+import com.jinfukeji.healthapp.activity.WXFenxiangActivity;
 
 /**
  * Created by "于志渊"
@@ -28,11 +26,6 @@ import com.jinfukeji.healthapp.activity.MyzhangdanActivity;
  */
 
 public class BannerActivity extends Fragment{
-    //fragment管理对象
-    FragmentManager fm;
-    FragmentTransaction ft;
-    IndexActivity ia=new IndexActivity();
-
     LinearLayout lvxin_ll,myshezhi_ll,chongzhi_ll,zhangdan_ll,jiqishezhi_ll,fenxiang_ll;
     ImageView fanhui_img;
     @Nullable
@@ -84,10 +77,7 @@ public class BannerActivity extends Fragment{
         fenxiang_ll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(Intent.ACTION_SEND);
-                intent.setType("image/*");
-                intent.putExtra(Intent.EXTRA_STREAM, Uri.parse("https://www.baidu.com/"));
-                startActivity(Intent.createChooser(intent,"分享"));
+                startActivity(new Intent(getContext(), WXFenxiangActivity.class));
             }
         });
     }

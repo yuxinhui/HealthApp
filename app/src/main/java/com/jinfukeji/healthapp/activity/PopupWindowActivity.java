@@ -1,6 +1,8 @@
 package com.jinfukeji.healthapp.activity;
 
 import android.app.Dialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -37,7 +39,6 @@ import com.jinfukeji.healthapp.been.PeiZhiBeen;
 public class PopupWindowActivity extends AppCompatActivity{
     EditText chanpinhao_et,mima_et;
     Button quxiao_btn,baocun_btn;
-    LinearLayout popup_jiqipeizhi_ll;
     Dialog dialog;
 
     String chanpinhao,mima;
@@ -68,7 +69,7 @@ public class PopupWindowActivity extends AppCompatActivity{
                             return;
                         }
                         String url_peizhi= HealthActivity.getUrlMain()+"device/addDevice?serialNumber="+chanpinhao+"&password="+mima;
-                        Log.e("TAG",url_peizhi);
+                        Log.e("url_peizhi",url_peizhi);
                         peizhiurl(url_peizhi);
                         finish();
                         break;
@@ -96,6 +97,10 @@ public class PopupWindowActivity extends AppCompatActivity{
                     Gson gson=new Gson();
                     PeiZhiBeen message=gson.fromJson(s,PeiZhiBeen.class);
                     if ("ok".equals(message.getStatus())){
+                        SharedPreferences sp=getSharedPreferences("peizhi_xulie", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor ed=sp.edit();
+                        ed.putInt("xulie_num", Integer.parseInt(chanpinhao));
+                        ed.apply();
                         Toast.makeText(PopupWindowActivity.this,"配置成功",Toast.LENGTH_SHORT).show();
                     }else {
                         Toast.makeText(PopupWindowActivity.this,"配置失败",Toast.LENGTH_SHORT).show();
@@ -125,7 +130,6 @@ public class PopupWindowActivity extends AppCompatActivity{
 
     //控件初始化
     private void initView(View.OnClickListener listener) {
-        popup_jiqipeizhi_ll= (LinearLayout) dialog.findViewById(R.id.popup_jiqipeizhi_ll);
         chanpinhao_et= (EditText)dialog.findViewById(R.id.chanpinhao_et);
         mima_et= (EditText) dialog.findViewById(R.id.mima_et);
         quxiao_btn= (Button) dialog.findViewById(R.id.quxiao_btn);

@@ -26,7 +26,7 @@
             android:text="故障反馈"
             android:textColor="#ffffff" />
     </RelativeLayout>
-    <com.jinfukeji.healthapp.utils.EdittextActivity
+    <com.jinfukeji.health.utils.EdittextActivity
         android:id="@+id/lianxi_num"
         android:layout_margin="10dp"
         android:inputType="phone"

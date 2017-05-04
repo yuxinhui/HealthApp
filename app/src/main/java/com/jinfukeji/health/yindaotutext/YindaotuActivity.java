@@ -28,14 +28,10 @@ import com.jinfukeji.health.R;
  */
 
 public class YindaotuActivity extends AppCompatActivity{
-    private int[] images = {R.mipmap.yindaoye_01,R.mipmap.yindaoye_02,R.mipmap.yindaoye_03};
+    private int[] images =new int[]{R.mipmap.yindaoye_01,R.mipmap.yindaoye_02,R.mipmap.yindaoye_03};
     private ImageAdapter imageAdapter=new ImageAdapter();
     private ViewPager viewPager;
 
-    //实例化原点View
-    private ViewGroup vg;//放置圆点
-    private ImageView iv_point;
-    private ImageView []ivPointArray;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,33 +39,7 @@ public class YindaotuActivity extends AppCompatActivity{
         viewPager = (ViewPager) findViewById(R.id.view_vp);
         viewPager.setAdapter(imageAdapter);
         viewPager.addOnPageChangeListener(new ViewPagerOnPageChangeListener());
-        //加载底部圆点
-        //initPoint();
     }
-
-    // 加载底部圆点
-    /*private void initPoint() {
-        //这里实例化LinearLayout
-        vg = (ViewGroup) findViewById(R.id.guide_ll);
-        //根据ViewPager的item数量实例化数组
-        ivPointArray = new ImageView[images.length];
-        //循环新建底部圆点ImageView，将生成的ImageView保存到数组中
-        int size = images.length;
-        for (int i = 0;i<size;i++){
-            iv_point = new ImageView(this);
-            iv_point.setLayoutParams(new ViewGroup.LayoutParams(25,25));
-            iv_point.setPadding(30,0,30,0);//left,top,right,bottom
-            ivPointArray[i] = iv_point;
-            //第一个页面需要设置为选中状态，这里采用两张不同的图片
-            if (i == 0){
-                iv_point.setBackgroundResource(R.mipmap.shixunyuan);
-            }else{
-                iv_point.setBackgroundResource(R.mipmap.kongxinyuan);
-            }
-            //将数组中的ImageView加入到ViewGroup
-            vg.addView(ivPointArray[i]);
-        }
-    }*/
 
     private class ViewPagerOnPageChangeListener implements ViewPager.OnPageChangeListener {
         int currPosition = 0; // 当前滑动到了哪一页
